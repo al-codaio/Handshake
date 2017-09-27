@@ -19,7 +19,7 @@ contract Handshake is Owned, HandshakeI {
   function Handshake() {}
 
   function createLaborContract(string data) public returns(address){
-    require(agencyExists[msg.sender]);
+    require(isRegistered(msg.sender));
     LaborContract laborContract = new LaborContract(data);
     laborContracts.push(laborContract);
     laborContractExists[laborContract] = true;
@@ -27,8 +27,19 @@ contract Handshake is Owned, HandshakeI {
     return laborContract;
   }
 
-  function registerAgency(address agency) public returns(bool);
-  function isRegistered(address agency) public returns(bool);
+  // should we check msg.sender?
+  function registerAgency(address agency) public returns(bool){
+    require(!isRegistered(agency));
+    agencies.push(agency);
+    agencyExists[agency] = true;
+    return true;
+  }
+
+  function isRegistered(address agency) public constant returns(bool){
+    return agencyExists[agency];
+  }
   /*For GUI iteration*/
-  function getLaborContractAt(uint index) public returns(address);
+  function getLaborContractAt(uint index) public constant returns(address){
+    return laborContracts[index];
+  }
 }
