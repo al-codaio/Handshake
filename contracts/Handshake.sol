@@ -1,9 +1,9 @@
-pragma solidity ^0.4.15;
+pragma solidity ^0.4.17;
 
 import "./LaborContract.sol";
 import "./Owned.sol";
 
-contract RecruitmentAgency is Owned {
+contract Handshake is Owned {
 
   address[] public laborContracts;
   mapping(address => bool) public laborContractExists;
@@ -23,7 +23,7 @@ contract RecruitmentAgency is Owned {
     LaborContract laborContract = new LaborContract(uwcLocation);
     laborContracts.push(laborContract);
     laborContractExists[laborContract] = true;
-    LaborContractCreated(uwcLocation, laborContract); 
+    LaborContractCreated(uwcLocation, laborContract);
     return laborContract;
   }
 

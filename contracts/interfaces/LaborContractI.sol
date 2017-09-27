@@ -1,6 +1,6 @@
 pragma solidity ^0.4.17;
 
-contract LaborContract {
+contract LaborContractI {
 	function sign() public returns (bool);
 	function getContractData() public constant returns(string);
     function hasSigned(address signee) public returns (bool);
