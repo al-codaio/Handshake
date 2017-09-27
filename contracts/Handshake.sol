@@ -27,8 +27,7 @@ contract Handshake is Owned, HandshakeI {
     return laborContract;
   }
 
-  // should we check msg.sender?
-  function registerAgency(address agency) public returns(bool){
+  function registerAgency(address agency) public fromOwner returns(bool){
     require(!isRegistered(agency));
     agencies.push(agency);
     agencyExists[agency] = true;
