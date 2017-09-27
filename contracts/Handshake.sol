@@ -14,8 +14,7 @@ contract Handshake is Owned, HandshakeI {
 
   event LogLaborContractCreated(string indexed data, address indexed agency, address indexed atAddress);
 
-  // Anything else needs to happen on creation?
-  // Any relation to accreditation etc.via uPort?
+  // nothing special here for now
   function Handshake() {}
 
   function createLaborContract(string data) public returns(address){
