@@ -30,15 +30,15 @@ contract("Handshake", accounts => {
   //
   // })
 
-  describe("register", () => {
+  describe("registerAgency", () => {
     it("can only be called by the owner", async () => {
-      expectException(async () => await handshake.register(
+      expectException(async () => await handshake.registerAgency(
         registered,
         {from: stranger}))
     })
 
     it("registers an address successfully", async () => {
-      let tx = await handshake.register(
+      let tx = await handshake.registerAgency(
         registered,
         {from: owner})
       assert.strictEqual(tx.receipt.logs.length, 1)
@@ -53,7 +53,7 @@ contract("Handshake", accounts => {
 
   describe("createLaborContract", () => {
     before("register an agency address", async () => {
-      handshake.register(registered, {from: owner})
+      handshake.registerAgency(registered, {from: owner})
     })
 
     it("should break if called from unregistered addresses", async () => {
