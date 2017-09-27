@@ -1,10 +1,12 @@
 pragma solidity ^0.4.15;
 
-contract LaborContract {
+import "./interfaces/LaborContractI.sol";
+
+contract LaborContract is LaborContractI {
 
 	string contractData;
 	address[] public signees;
-	mapping(address => bool) public isSignee;
+	mapping(address => bool) public signeeExists;
 
 	event LogContractSigned(address indexed signee);
 
@@ -13,13 +15,25 @@ contract LaborContract {
 	}
 
 	// To be completed by the potential future employee, from their uPort identity.
-	function signContract()
+	function sign()
 	public
 	returns (bool){
-		require(!isSignee[msg.sender]);
+		require(!hasSigned(msg.sender));
 		signees.push(msg.sender);
-		isSignee[msg.sender] = true;
+		signeeExists[msg.sender] = true;
 		LogContractSigned(msg.sender);
 		return true;
+	}
+
+	function getContractData() public constant returns(string){
+		return contractData;
+	}
+
+	function hasSigned(address signee) public returns (bool){
+		return signeeExists[signee];
+	}
+
+	function getSigneeAt(uint index) public returns (address){
+		return signees[index];
 	}
 }
