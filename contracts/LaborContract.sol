@@ -1,4 +1,4 @@
-pragma solidity ^0.4.17;
+pragma solidity ^0.4.15;
 
 contract LaborContract {
 
@@ -14,6 +14,6 @@ contract LaborContract {
 	function signContract()
 	public
 	returns (bool){
-		throw; // TODO: Implement
+		
 	}
 }
