@@ -36,7 +36,6 @@ contract("LaborContract", accounts => {
       assert.strictEqual(tx.logs.length, 1)
       assert.strictEqual(tx.logs[0].event, "LogContractSigned")
       assert.strictEqual(tx.logs[0].args.signee, stranger)
-      // will only work after hasSigned is implemented
       assert.isTrue(await laborContract.hasSigned.call(stranger, {from: stranger}))
     })
   })
