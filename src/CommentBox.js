@@ -53,8 +53,6 @@ class CommentBox extends Component {
   render() {
     return (
       <div style={ style.commentBox }>
-        <h2 style={ style.title }>Handshake</h2>
-        <h3 style={ style.subtitle }>Putting labor contracts for migrant workers on the blockchain</h3>
       <CommentList
         onCommentDelete={ this.handleCommentDelete }
         onCommentUpdate={ this.handleCommentUpdate }

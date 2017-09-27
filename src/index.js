@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CommentBox from './CommentBox';
+import Dashboard from './Dashboard';
+import Header from './Header';
+
 // import './index.css';
 // import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
@@ -9,8 +12,12 @@ import CommentBox from './CommentBox';
 // registerServiceWorker();
 
 ReactDOM.render(
-  <CommentBox
-    url='http://localhost:3001/api/comments'
-    pollInterval={2000} />,
+    <div>
+        <Header />
+        <Dashboard />
+        <CommentBox
+            url='http://localhost:3001/api/comments'
+            pollInterval={2000} />
+    </div>,
   document.getElementById('root')
 );
