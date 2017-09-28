@@ -55,16 +55,33 @@ const style = {
     letterSpacing:'.055rem',
     border:'none'
   },
-  updateLink: {
-    textDecoration:'none',
-    paddingRight:'15px',
-    fontSize:'.7rem'
+  dashboard: {
+    backgroundColor: '#5CC3A6',
+    width: '100%'
+  },
+  dashboardTabHolder: {
+    styleList: "none"
+  },
+  dashboardTabs: {
+    backgroundColor: "#fff",
+    borderRadius: "2px",
+    cursor: "pointer",
+    display: "inline-block",
+    float: "right",
+    fontSize: "1.2em",
+    padding: "15px 25px",
+    marginLeft: "25px"
   },
   deleteLink: {
     textDecoration:'none',
     paddingRight:'15px',
     fontSize:'.7rem',
     color:'red'
+  },
+  updateLink: {
+    textDecoration:'none',
+    paddingRight:'15px',
+    fontSize:'.7rem'
   }
 }
 

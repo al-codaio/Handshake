@@ -4,11 +4,13 @@ import style from './style/style';
 class Dashboard extends Component {
     render() {
         return (
-            <div className="container">
-                <ul>
-                    <li>Contracts</li>
-                    <li>Job Orders</li>
-                </ul>
+            <div style={ style.dashboard }>
+                <div className="container">
+                    <ul style={style.dashboardTabHolder}>
+                        <li style={style.dashboardTabs}>Job Orders</li>
+                        <li style={style.dashboardTabs}>Contracts</li>
+                    </ul>
+                </div>
             </div>
         )
     }

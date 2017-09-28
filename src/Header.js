@@ -5,17 +5,17 @@ class Header extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
+                <div style={style.header} className="row">
                     <div className="col-md-8">
                         <a href="#">
                             <img src={require('./img/handshake-logo.png')} />
                         </a>
-                        <p>Universal migrant worker contracts on the blockchain</p>
+                        <p style={style.subtext}>Universal migrant worker contracts on the blockchain</p>
                     </div>
 
                     <div className="col-md-4">
-                        <a href="#">Dashboard</a>
-                        <a href="#">Identity</a>
+                        <a style={style.headerLink} href="#">Identity</a>
+                        <a style={Object.assign({}, style.headerLink, style.headerLinkActive)} href="#">Dashboard</a>
                     </div>
                 </div>
             </div>
