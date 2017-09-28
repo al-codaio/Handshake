@@ -1,32 +1,32 @@
 const style = {
-  commentBox: {
+  agencyBox: {
     width:'80vw',
     margin:'0 auto',
-    fontFamily:'Helvetica, sans-serif'
+    fontFamily:'Roboto'
   },
   title: {
     textAlign:'center',
     textTransform:'uppercase'
   },
-  commentList: {
+  agencyList: {
     border:'1px solid #f1f1f1',
     padding:'0 12px',
     maxHeight:'70vh',
     overflow:'scroll'
   },
-  comment: {
+  agency: {
     backgroundColor:'#fafafa',
     margin:'10px',
     padding:'3px 10px',
-    fontSize:'.85rem'
+    fontSize:'1.5rem'
   },
-  commentForm: {
+  agencyForm: {
     margin:'10px',
     display:'flex',
     flexFlow:'row wrap',
     justifyContent:'space-between'
   },
-  commentFormAuthor: {
+  agencyFormFields: {
     minWidth:'150px',
     margin:'3px',
     padding:'0 10px',
@@ -34,21 +34,21 @@ const style = {
     height:'40px',
     flex:'2'
   },
-  commentFormText: {
-    flex:'4',
-    minWidth:'400px',
-    margin:'3px',
-    padding:'0 10px',
-    height:'40px',
-    borderRadius:'3px'
-  },
-  commentFormPost: {
-    minWidth:'75px',
+  // commentFormText: {
+  //   flex:'4',
+  //   minWidth:'400px',
+  //   margin:'3px',
+  //   padding:'0 10px',
+  //   height:'40px',
+  //   borderRadius:'3px'
+  // },
+  formPost: {
+    minWidth:'100px',
     flex:'1',
     height:'40px',
     margin:'5px 3px',
     fontSize:'1rem',
-    backgroundColor:'#A3CDFD',
+    backgroundColor:'#275a94',
     borderRadius:'3px',
     color:'#fff',
     textTransform:'uppercase',
@@ -65,6 +65,10 @@ const style = {
     paddingRight:'15px',
     fontSize:'.7rem',
     color:'red'
+  },
+  headers: {
+    textAlign:'center',
+    minWidth:'150px'
   }
 }
 

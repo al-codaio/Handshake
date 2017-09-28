@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CommentBox from './CommentBox';
+import AgencyBox from './AgencyBox';
 import Dashboard from './Dashboard';
 import Header from './Header';
 
@@ -15,8 +15,8 @@ ReactDOM.render(
     <div>
         <Header />
         <Dashboard />
-        <CommentBox
-            url='http://localhost:3001/api/comments'
+        <AgencyBox
+            url='http://localhost:3001/api/agencies'
             pollInterval={2000} />
     </div>,
   document.getElementById('root')
