@@ -9,24 +9,22 @@ class NewContract extends Component {
       this.state = {
         inputs: {
           name: '',
-          site: ''
+          site: '',
+          type: ''
         }
       };
     }
 
     setInput(event){
+      let currentInputs = this.state.inputs;
+      currentInputs[event.target.id] = event.target.value;
       this.setState({
-        inputs: {
-          [event.target.id]: event.target.value
-        }
-      })
+        inputs: currentInputs
+      });
     }
 
     createNewContract(){
       const jsonString = JSON.stringify(this.state.inputs);
-      console.log(jsonString);
-      console.log(this.props.appContext.userAccount);
-      console.log(this.state.inputs);
       this.props.appContext.handshakeContractInstance
         .createLaborContract(jsonString, {from: this.props.appContext.userAccount, gas: 4000000});
     }
@@ -42,6 +40,10 @@ class NewContract extends Component {
                 <div>
                   <label htmlFor="site">Site</label>
                   <input type="text" value={this.state.inputs.site} id="site" onChange={(e) => this.setInput(e)}></input>
+                </div>
+                <div>
+                  <label htmlFor="type">Type</label>
+                  <input type="text" value={this.state.inputs.type} id="type" onChange={(e) => this.setInput(e)}></input>
                 </div>
                 <button onClick={() => this.createNewContract()}>Create</button>
                 <Link to={{ pathname: '/' }}><p>Back to Dash</p></Link>
