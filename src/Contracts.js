@@ -18,6 +18,7 @@ class Contracts extends Component {
 
                 <div>
                     <table>
+                      <thead>
                         <tr>
                             <th>#</th>
                             <th>Contract Name</th>
@@ -25,7 +26,8 @@ class Contracts extends Component {
                             <th>Job Type</th>
                             <th>Status</th>
                         </tr>
-
+                      </thead>
+                      <tbody>
                         <tr>
                             <td>1</td>
                             <td><a href="#">Home caretaker for elderly home</a></td>
@@ -33,6 +35,7 @@ class Contracts extends Component {
                             <td>caretaker</td>
                             <td>unsigned</td>
                         </tr>
+                      </tbody>
                     </table>
                 </div>
             </div>

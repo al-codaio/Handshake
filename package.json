@@ -12,7 +12,8 @@
     "nodemon": "^1.12.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "react-scripts": "^1.0.13"
+    "react-scripts": "^1.0.13",
+    "truffle-contract": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
