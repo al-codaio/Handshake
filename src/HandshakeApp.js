@@ -23,8 +23,13 @@ class HandshakeApp extends Component {
 
     this.appContext = {
       web3: null,
-      handshakeContractInstance: null
+      handshakeContractInstance: null,
+      userAccount: null
     };
+
+    this.state = {
+      contracts: []
+    }
   }
 
   componentWillMount(){
@@ -42,8 +47,36 @@ class HandshakeApp extends Component {
     const contract = require('truffle-contract')
     const handshake = contract(Handshake)
     handshake.setProvider(this.appContext.web3.currentProvider)
-    handshake.deployed()
-      .then(instance => this.appContext.handshakeContractInstance = instance);
+
+    this.appContext.web3.eth.getAccounts((error, accounts) => {
+      this.appContext.userAccount = accounts[0];
+      return handshake.deployed();
+    }).then(instance =>{
+      this.appContext.handshakeContractInstance = instance;
+      this.setupContractListeners(this);
+    });
+  }
+
+  setupContractListeners(component){
+    this.appContext.handshakeContractInstance
+    .LogLaborContractCreated(null, { fromBlock: 0, toBlock: 'latest' }).watch(function(err, result){
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log('contract created from: ', result.args.agency);
+      console.log('contract at address: ', result.args.atAddress);
+      console.log('contract created with data: ', result.args.data);
+      // TODO: use to update state
+    })
+  }
+
+  registerAgency(){
+    // TODO: Interact with instance to register current address as agency
+  }
+
+  createContract(){
+    // TODO: Interact with instance to create new labor contract
   }
 
   render(){
