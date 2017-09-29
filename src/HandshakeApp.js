@@ -6,7 +6,6 @@ import NewContract from './NewContract';
 import Identity from './Identity';
 import {
   BrowserRouter as Router,
-  Link,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -41,8 +40,8 @@ class HandshakeApp extends Component {
       this.appContext.web3 = results.web3;
       this.setupContractInstance();
     })
-    .catch(() => {
-      console.log('Error finding web3.')
+    .catch((e) => {
+      console.log('Error finding web3.', e)
     })
   }
 
@@ -50,13 +49,13 @@ class HandshakeApp extends Component {
     const contract = require('truffle-contract')
     const handshake = contract(Handshake)
     handshake.setProvider(this.appContext.web3.currentProvider)
-
     this.appContext.web3.eth.getAccounts((error, accounts) => {
       this.appContext.userAccount = accounts[0];
-      return handshake.deployed();
-    }).then(instance =>{
-      this.appContext.handshakeContractInstance = instance;
-      this.setupContractListeners(this);
+      handshake.deployed().then((instance) =>{
+          this.appContext.handshakeContractInstance = instance;
+          this.setupContractListeners(this);
+          this.registerAgency();
+      });
     });
   }
 
@@ -70,16 +69,21 @@ class HandshakeApp extends Component {
       console.log('contract created from: ', result.args.agency);
       console.log('contract at address: ', result.args.atAddress);
       console.log('contract created with data: ', result.args.data);
-      // TODO: use to update state
+      component.setState({
+        contracts: component.state.contracts.concat([JSON.parse(result.args.data)])
+      });
     })
   }
 
+  // Register current user as agency if not already registered. Can improve in future
   registerAgency(){
-    // TODO: Interact with instance to register current address as agency
-  }
-
-  createContract(){
-    // TODO: Interact with instance to create new labor contract
+    this.appContext.handshakeContractInstance
+    .isRegistered.call(this.appContext.userAccount)
+    .then(registered =>{
+      if (!registered)
+        this.appContext.handshakeContractInstance
+          .registerAgency(this.appContext.userAccount, {from: this.appContext.userAccount});
+    });
   }
 
   render(){
@@ -88,7 +92,7 @@ class HandshakeApp extends Component {
         <Router>
           <Switch>
             <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
-            <Route exact path='/contract/new' component={NewContract}/>
+            <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
             <Route exact path='/identity' component={Identity}/>
           </Switch>
         </Router>

@@ -27,7 +27,7 @@ contract Handshake is Owned, HandshakeI {
     return laborContract;
   }
 
-  function registerAgency(address agency) public fromOwner returns(bool){
+  function registerAgency(address agency) public  returns(bool){
     require(!isRegistered(agency));
     agencies.push(agency);
     agencyExists[agency] = true;
