@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
-import CommentBox from './CommentBox';
-import Contracts from './Contracts';
 import Dashboard from './Dashboard';
 import Header from './Header';
+import NewContract from './NewContract';
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 
 class HandshakeApp extends Component {
 
@@ -15,11 +21,13 @@ class HandshakeApp extends Component {
     return(
       <div>
         <Header />
-        <Dashboard />
-        <Contracts />
-        <CommentBox
-            url='http://localhost:3001/api/comments'
-            pollInterval={2000} />
+
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Dashboard}/>
+            <Route exact path='/contract/new' component={NewContract}/>
+          </Switch>
+        </Router>
       </div>
     );
   }
