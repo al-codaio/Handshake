@@ -7,6 +7,7 @@ import Contracts from './Contracts';
 import Dashboard from './Dashboard';
 import Header from './Header';
 import NewContract from './NewContract';
+import Identity from './Identity';
 import {
   BrowserRouter as Router,
   Link,
@@ -48,13 +49,16 @@ class HandshakeApp extends Component {
   render(){
     return(
       <div>
-        <Header />
-
         <Router>
-          <Switch>
-            <Route exact path='/' component={Dashboard}/>
-            <Route exact path='/contract/new' component={NewContract}/>
-          </Switch>
+          <div>
+            <Header />
+
+            <Switch>
+              <Route exact path='/' component={Dashboard}/>
+              <Route exact path='/contract/new' component={NewContract}/>
+              <Route exact path='/identity' component={Identity}/>
+            </Switch>
+          </div>
         </Router>
       </div>
     );
