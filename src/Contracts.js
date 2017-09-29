@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import style from './style/contracts';
+
 
 class Contracts extends Component {
     render() {
@@ -12,7 +14,7 @@ class Contracts extends Component {
                     </div>
 
                     <div className="col-md-4">
-                        <div style={ style.btnDropdownMain }>New Contract</div>
+                        <Link to={{ pathname: '/contract/new' }}><div style={ style.btnDropdownMain }>New Contract</div></Link>
                     </div>
                 </div>
 

@@ -1,10 +1,19 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom';
 import Handshake from './contracts/Handshake.json'
 import getWeb3 from './utils/getWeb3';
 import CommentBox from './CommentBox';
 import Contracts from './Contracts';
 import Dashboard from './Dashboard';
 import Header from './Header';
+import NewContract from './NewContract';
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+} from 'react-router-dom';
+
 
 class HandshakeApp extends Component {
 
@@ -72,12 +81,12 @@ class HandshakeApp extends Component {
   render(){
     return(
       <div>
-        <Header />
-        <Dashboard />
-        <Contracts contracts={this.state.contracts} />
-        <CommentBox
-            url='http://localhost:3001/api/comments'
-            pollInterval={2000} />
+        <Router>
+          <Switch>
+            <Route exact path='/' component={Dashboard}/>
+            <Route exact path='/contract/new' component={NewContract}/>
+          </Switch>
+        </Router>
       </div>
     );
   }
