@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import style from './style/header';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -14,8 +15,8 @@ class Header extends Component {
                     </div>
 
                     <div className="col-md-4">
-                        <a style={style.headerLink} href="#">Identity</a>
-                        <a style={Object.assign({}, style.headerLink, style.headerLinkActive)} href="#">Dashboard</a>
+                        <Link style={style.headerLink} to={{ pathname: '/identity' }}>Identity</Link>
+                        <Link style={Object.assign({}, style.headerLink, style.headerLinkActive)} to={{ pathname: '/' }}>Dashboard</Link>
                     </div>
                 </div>
             </div>
