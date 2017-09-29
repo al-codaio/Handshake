@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom';
 import Handshake from './contracts/Handshake.json'
 import getWeb3 from './utils/getWeb3';
-import CommentBox from './CommentBox';
-import Contracts from './Contracts';
 import Dashboard from './Dashboard';
-import Header from './Header';
 import NewContract from './NewContract';
 import {
   BrowserRouter as Router,
@@ -27,7 +23,14 @@ class HandshakeApp extends Component {
     };
 
     this.state = {
-      contracts: []
+      contracts: [
+        {
+          name: 'Home caretaker for elderly home',
+          site: 'Hospital 7, Saudi Arabia',
+          type: 'Caretaker',
+          status: 'Unsigned'
+        } // TODO: Remove this once data is real
+      ]
     }
   }
 
@@ -83,7 +86,7 @@ class HandshakeApp extends Component {
       <div>
         <Router>
           <Switch>
-            <Route exact path='/' component={Dashboard}/>
+            <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
             <Route exact path='/contract/new' component={NewContract}/>
           </Switch>
         </Router>

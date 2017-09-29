@@ -30,13 +30,13 @@ class Contracts extends Component {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="#">Home caretaker for elderly home</a></td>
-                            <td>Hospital 7, Saudia Arabia</td>
-                            <td>caretaker</td>
-                            <td>unsigned</td>
-                        </tr>
+                        {this.props.contracts.map((contract,index) => <tr key={index}>
+                          <td>{index+1}</td>
+                          <td><a href="#">{contract.name}</a></td>
+                          <td>{contract.site}</td>
+                          <td>{contract.type}</td>
+                          <td>{contract.status}</td>
+                        </tr>)}
                       </tbody>
                     </table>
                 </div>

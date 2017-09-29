@@ -17,7 +17,7 @@ class Dashboard extends Component {
                 </div>
 
                 <div>
-                    <Contracts />
+                    <Contracts contracts={this.props.contracts} />
                     <CommentBox
                         url='http://localhost:3001/api/comments'
                         pollInterval={2000} />
