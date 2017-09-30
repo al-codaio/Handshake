@@ -423,5 +423,9 @@
   },
   "networks": {},
   "schemaVersion": "1.0.0",
-  "updatedAt": "2017-09-29T21:38:44.883Z"
+  "updatedAt": "2017-09-29T21:38:44.883Z",
+  "contract_name": "LaborContractI",
+  "unlinked_binary": "0x",
+  "schema_version": "0.0.5",
+  "updated_at": 1506737218237
 }

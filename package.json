@@ -21,6 +21,12 @@
     "start-dev": "nf start -p 3000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-full": "run-script-os",
+    "start-full:win32": "truffle compile --compile-all && truffle migrate --reset && robocopy build/contracts src/contracts && npm start nf start -p 3000",
+    "start-full:darwin:linux": "truffle compile --compile-all && truffle migrate --reset && cp -f -r ./build/contracts ./src && npm start nf start -p 3000"
+  },
+  "devDependencies": {
+    "run-script-os": "^1.0.2"
   }
 }
