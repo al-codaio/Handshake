@@ -19,7 +19,7 @@ class Dashboard extends Component {
                 <div>
                     <Contracts contracts={this.props.contracts} />
                     <AgencyBox
-                        url='http://localhost:3001/api/comments'
+                        url='http://localhost:3001/api/agencies'
                         pollInterval={2000} />
                 </div>
             </div>

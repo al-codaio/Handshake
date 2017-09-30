@@ -492,9 +492,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.0",
-  "updatedAt": "2017-09-29T21:38:44.880Z",
-  "contract_name": "HandshakeI",
-  "unlinked_binary": "0x",
-  "schema_version": "0.0.5",
-  "updated_at": 1506737218237
+  "updatedAt": "2017-09-30T02:57:16.651Z"
 }
