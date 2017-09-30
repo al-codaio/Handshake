@@ -9,7 +9,6 @@ const style = {
     textTransform:'uppercase'
   },
   agencyList: {
-    border:'1px solid #f1f1f1',
     padding:'0 12px',
     maxHeight:'70vh',
     overflow:'scroll'
@@ -27,12 +26,11 @@ const style = {
     justifyContent:'space-between'
   },
   agencyFormFields: {
-    minWidth:'150px',
     margin:'3px',
     padding:'0 10px',
     borderRadius:'3px',
     height:'40px',
-    flex:'2'
+    width:'75%'
   },
   // commentFormText: {
   //   flex:'4',
@@ -47,11 +45,10 @@ const style = {
     flex:'1',
     height:'40px',
     margin:'5px 3px',
-    fontSize:'1rem',
+    fontSize:'20px',
     backgroundColor:'#275a94',
     borderRadius:'3px',
     color:'#fff',
-    textTransform:'uppercase',
     letterSpacing:'.055rem',
     border:'none'
   },

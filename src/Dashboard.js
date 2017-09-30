@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import style from './style/style';
 import Contracts from './Contracts';
-import AgencyBox from './AgencyBox';
 
 class Dashboard extends Component {
     render() {
@@ -18,9 +17,6 @@ class Dashboard extends Component {
 
                 <div>
                     <Contracts contracts={this.props.contracts} />
-                    <AgencyBox
-                        url='http://localhost:3001/api/agencies'
-                        pollInterval={2000} />
                 </div>
             </div>
         )

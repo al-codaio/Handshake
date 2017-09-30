@@ -22,8 +22,11 @@ class AgencyList extends Component {
       )
     })
     return (
-      <div style={ style.agencyList }>
-        { agencyNodes }
+      <div>
+        <h2>List of Agencies</h2>
+        <div style={ style.agencyList }>
+          { agencyNodes }
+        </div>
       </div>
     )
   }

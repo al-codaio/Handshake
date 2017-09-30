@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-// import style from './style/contracts';
+// import style from './style/style';
 
 class NewContract extends Component {
     constructor(props){

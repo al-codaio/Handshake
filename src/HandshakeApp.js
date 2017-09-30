@@ -3,6 +3,7 @@ import Handshake from './contracts/Handshake.json'
 import getWeb3 from './utils/getWeb3';
 import Dashboard from './Dashboard';
 import NewContract from './NewContract';
+import NewAgency from './NewAgency';
 import Identity from './Identity';
 import {
   BrowserRouter as Router,
@@ -93,6 +94,7 @@ class HandshakeApp extends Component {
           <Switch>
             <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
             <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
+            <Route exact path='/agency/new' render={() => <NewAgency appContext={this.appContext} />} />
             <Route exact path='/identity' component={Identity}/>
           </Switch>
         </Router>

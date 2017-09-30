@@ -70,49 +70,59 @@ class AgencyForm extends Component {
   }
   render() {
     return (
-      <form style={ style.agencyForm } onSubmit={ this.handleSubmit }>
-        <input
-          type='text'
-          placeholder={"Your Agency's Name"}
-          style={ style.agencyFormFields}
-          value={ this.state.name } 
-          onChange={ this.handleNameChange } />
-        <input
-          type='text'
-          placeholder='City'
-          style={ style.agencyFormFields}
-          value={ this.state.city } 
-          onChange={ this.handleCityChange }/>
-        <input
-          type='text'
-          placeholder='Country'
-          style={ style.agencyFormFields}
-          value={ this.state.country } 
-          onChange={ this.handleCountryChange }/>
-        <input
-          type='text'
-          placeholder='Contact Name'
-          style={ style.agencyFormFields}
-          value={ this.state.contact_name } 
-          onChange={ this.handleContactNameChange }/>
-        <input
-          type='text'
-          placeholder='Contact Phone'
-          style={ style.agencyFormFields}
-          value={ this.state.contact_phone } 
-          onChange={ this.handleContactPhoneChange }/>
-        <input
-          type='text'
-          placeholder='Contact Email'
-          style={ style.agencyFormFields}
-          value={ this.state.contact_email } 
-          onChange={ this.handleContactEmailChange }/>
+      <div className="container">
+        <div className="row">
+          <form onSubmit={ this.handleSubmit }>      
+            <div className="col-md-6">
+              <input
+                type='text'
+                placeholder={"Your Agency's Name"}
+                style={ style.agencyFormFields}
+                value={ this.state.name } 
+                onChange={ this.handleNameChange } />
+              <input
+                type='text'
+                placeholder='City'
+                style={ style.agencyFormFields}
+                value={ this.state.city } 
+                onChange={ this.handleCityChange }/>
+              <input
+                type='text'
+                placeholder='Country'
+                style={ style.agencyFormFields}
+                value={ this.state.country } 
+                onChange={ this.handleCountryChange }/>
+            </div>      
+            <div className="col-md-6">
+              <input
+                type='text'
+                placeholder='Contact Name'
+                style={ style.agencyFormFields}
+                value={ this.state.contact_name } 
+                onChange={ this.handleContactNameChange }/>
+              <input
+                type='text'
+                placeholder='Contact Phone'
+                style={ style.agencyFormFields}
+                value={ this.state.contact_phone } 
+                onChange={ this.handleContactPhoneChange }/>
+              <input
+                type='text'
+                placeholder='Contact Email'
+                style={ style.agencyFormFields}
+                value={ this.state.contact_email } 
+                onChange={ this.handleContactEmailChange }/>
+            </div> 
+          </form>     
+          
+          <input
+            type='submit'
+            style={ style.formPost }
+            value='Submit Your Agency'/>
         
-        <input
-          type='submit'
-          style={ style.formPost }
-          value='Submit Agency'/>
-      </form>
+        </div>
+      </div>
+
     )
   }
 }

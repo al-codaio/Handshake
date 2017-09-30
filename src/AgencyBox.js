@@ -57,6 +57,7 @@ class AgencyBox extends Component {
     return (
       <div style={ style.agencyBox }>
         <AgencyForm onAgencySubmit={ this.handleAgencySubmit }/>
+        <br></br>
         <AgencyList data={ this.state.data }/>
       </div> 
     )

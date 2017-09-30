@@ -8,7 +8,8 @@ const contracts = {
         float: "right",
         fontSize: "1.2em",
         padding: "16px 26px",
-        marginTop: "31px"
+        marginTop: "31px",
+        marginRight: "10px"
     }
 }
 
