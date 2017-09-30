@@ -3,6 +3,7 @@ import Handshake from './contracts/Handshake.json'
 import getWeb3 from './utils/getWeb3';
 import Dashboard from './Dashboard';
 import NewContract from './NewContract';
+import ViewContract from './ViewContract';
 import Identity from './Identity';
 import {
   BrowserRouter as Router,
@@ -24,12 +25,6 @@ class HandshakeApp extends Component {
 
     this.state = {
       contracts: [
-        {
-          name: 'Home caretaker for elderly home',
-          site: 'Hospital 7, Saudi Arabia',
-          type: 'Caretaker',
-          status: 'Unsigned'
-        } // TODO: Remove this once data is real
       ]
     }
   }
@@ -61,7 +56,7 @@ class HandshakeApp extends Component {
 
   setupContractListeners(component){
     this.appContext.handshakeContractInstance
-    .LogLaborContractCreated(null, { fromBlock: 0, toBlock: 'latest' }).watch(function(err, result){
+    .LogLaborContractCreated(null, { fromBlock: 0, toBlock: 'latest', agency: this.appContext.userAccount }).watch(function(err, result){
       if (err) {
         console.log(err);
         return;
@@ -69,8 +64,10 @@ class HandshakeApp extends Component {
       console.log('contract created from: ', result.args.agency);
       console.log('contract at address: ', result.args.atAddress);
       console.log('contract created with data: ', result.args.data);
+      let contract = JSON.parse(result.args.data);
+      contract.address = result.args.atAddress;
       component.setState({
-        contracts: component.state.contracts.concat([JSON.parse(result.args.data)])
+        contracts: component.state.contracts.concat([contract])
       });
     })
   }
@@ -94,6 +91,7 @@ class HandshakeApp extends Component {
             <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
             <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
             <Route exact path='/identity' component={Identity}/>
+            <Route path='/contract/:address' render={() => <ViewContract contracts={this.state.contracts} />} />
           </Switch>
         </Router>
       </div>
