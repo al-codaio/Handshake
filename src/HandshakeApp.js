@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Connect, MNID } from 'uport-connect'
 import Handshake from './contracts/Handshake.json'
 import getWeb3 from './utils/getWeb3';
 import Dashboard from './Dashboard';
@@ -19,6 +20,7 @@ class HandshakeApp extends Component {
     super(props);
 
     this.appContext = {
+      uPortWeb3: null,
       web3: null,
       handshakeContractInstance: null,
       userAccount: null
@@ -35,6 +37,14 @@ class HandshakeApp extends Component {
     .then(results => {
       this.appContext.web3 = results.web3;
       this.setupContractInstance();
+      const uport = new Connect('MyDApp');
+      this.appContext.uPortWeb3 = uport.getWeb3();
+      // uport.requestCredentials().then((credentials) => {
+      //   console.log(credentials)
+      //   const decodedId = MNID.decode(credentials.address)
+      //   const specificNetworkAddress = decodedId.address
+      //   console.log(specificNetworkAddress)
+      // })
     })
     .catch((e) => {
       console.log('Error finding web3.', e)
@@ -93,7 +103,7 @@ class HandshakeApp extends Component {
             <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
             <Route exact path='/agency/new' render={() => <NewAgency appContext={this.appContext} />} />
             <Route exact path='/identity' component={Identity}/>
-            <Route path='/contract/:address' render={(props) => <ViewContract {...props} contracts={this.state.contracts} />} />
+            <Route path='/contract/:address' render={(props) => <ViewContract {...props} appContext={this.appContext} contracts={this.state.contracts} />} />
           </Switch>
         </Router>
       </div>
