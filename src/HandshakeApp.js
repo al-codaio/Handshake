@@ -22,6 +22,7 @@ class HandshakeApp extends Component {
     super(props);
 
     this.appContext = {
+      uport: null,
       uPortWeb3: null,
       web3: null,
       handshakeContractInstance: null,
@@ -39,8 +40,9 @@ class HandshakeApp extends Component {
     .then(results => {
       this.appContext.web3 = results.web3;
       this.setupContractInstance();
-      const uport = new Connect('MyDApp');
-      this.appContext.uPortWeb3 = uport.getWeb3();
+      const uPort = new Connect('MyDApp');
+      this.appContext.uPort = uPort;
+      this.appContext.uPortWeb3 = uPort.getWeb3(); // in end may not need both but is easier for now
     })
     .catch((e) => {
       console.log('Error finding web3.', e)

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { MNID } from 'uport-connect'
 import LaborContract from './contracts/LaborContract.json'
 
 class ViewContract extends Component {
@@ -7,8 +8,37 @@ class ViewContract extends Component {
       super(props)
 
       this.state = {
+        uPortUser: null,
         signees: []
       };
+    }
+
+    componentWillMount(){
+      this.setupContractInstance();
+    }
+
+    setupContractInstance(){
+      const contract = require('truffle-contract')
+      const laborContract = contract(LaborContract)
+      laborContract.setProvider(this.props.appContext.web3.currentProvider)
+      laborContract.at(this.props.match.params.address)
+        .then(instance => this.setupEventListeners(instance));
+    }
+
+    setupEventListeners(instance){
+      let component = this;
+      instance.LogContractSigned(null, { fromBlock: 0, toBlock: 'latest'}).watch(function(err, result){
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log('contract was signed');
+        let signee = JSON.parse(result.args.data);
+        signee.address = result.args.signee;
+        component.setState({
+          signees: component.state.contracts.concat([signee])
+        });
+      });
     }
 
     // blah not best way of doing this - should probably store by key. TODO
@@ -18,6 +48,20 @@ class ViewContract extends Component {
         if (this.props.contracts[i].address == contractAddress)
           return this.props.contracts[i];
       }
+    }
+
+    loginUport(){
+      this.props.appContext.uPort.requestCredentials().then((userProfile) => {
+        console.log(userProfile);
+         this.setState({
+           uPortUser: {
+             name: userProfile.name,
+             country: userProfile.country,
+             address: userProfile.address,
+             rinkebyAddress: MNID.decode(userProfile.address).address
+           }
+         })
+      })
     }
 
     signContract(){
@@ -34,8 +78,7 @@ class ViewContract extends Component {
           function successCB (data) {
             // Great Success!
             // Likely you'll call some eventPublisherMethod(txHash, data)
-            console.log('Success');
-            console.log('Made it');
+            console.log('success');
           }
         )
       })
@@ -70,6 +113,31 @@ class ViewContract extends Component {
       return (
         <div>
           <h2>Will be a page to view and allow future employees to sign contracts</h2>
+          {this.state.uPortUser
+            ? <div>
+              <h4>Logged in as:</h4>
+                <p>
+                  Name: {this.state.uPortUser.name}
+                </p>
+                <p>
+                  Country: {this.state.uPortUser.country}
+                </p>
+                <p>
+                  uPort Address: {this.state.uPortUser.address}
+                </p>
+                <p>
+                  Rinkeby Address :{this.state.uPortUser.rinkebyAddress}
+                </p>
+            </div>
+            : null}
+          <div>
+            <h3>Signees</h3>
+            <ul>
+              {this.state.signees.map((signee, index) => <li key={index}>
+                {signee}
+              </li>)}
+            </ul>
+          </div>
           <p>
             {contract.name}
           </p>
@@ -82,7 +150,24 @@ class ViewContract extends Component {
           <p>
             {contract.site}
           </p>
-          <button onClick={() => this.signContract()}>Sign</button>
+          <p>
+            {contract.vacation}
+          </p>
+          <p>
+            {contract.sick}
+          </p>
+          <p>
+            {contract.food}
+          </p>
+          <p>
+            {contract.transport}
+          </p>
+          <p>
+            {contract.housing}
+          </p>
+          {this.state.uPortUser
+          ? <button onClick={() => this.signContract()}>Sign</button>
+          : <button onClick={() => this.loginUport()}>Log in with uPort</button>}
         </div>
       );
     }
