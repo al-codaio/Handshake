@@ -8,9 +8,6 @@ const header = {
         fontSize: "1.2em",
         padding: "26px 0 0 35px"
     },
-    headerLinkActive: {
-        fontWeight: "700"
-    },
     subtext: {
         color: "#2C83AA",
         fontWeight: "600"

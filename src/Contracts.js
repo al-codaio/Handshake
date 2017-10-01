@@ -30,10 +30,12 @@ class Contracts extends Component {
                             <th>Status</th>
                         </tr>
                       </thead>
+
                       <tbody>
                         {this.props.contracts.map((contract,index) => <tr key={index}>
                           <td>{index+1}</td>
                           <td><Link to={{ pathname: '/contract/' + contract.address }}>{contract.name}</Link></td>
+
                           <td>{contract.site}</td>
                           <td>{contract.type}</td>
                           <td>{contract.status}</td>

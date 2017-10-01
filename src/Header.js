@@ -15,8 +15,8 @@ class Header extends Component {
                     </div>
 
                     <div className="col-md-4">
-                        <Link style={style.headerLink} to={{ pathname: '/identity' }}>Identity</Link>
-                        <Link style={Object.assign({}, style.headerLink, style.headerLinkActive)} to={{ pathname: '/' }}>Dashboard</Link>
+                        <Link style={style.headerLink} to={{ pathname: '/identity' }} activeStyle={{ fontWeight: '700' }}>Identity</Link>
+                        <Link style={style.headerLink} to={{ pathname: '/' }} activeStyle={{ fontWeight: '700' }}>Dashboard</Link>
                     </div>
                 </div>
             </div>

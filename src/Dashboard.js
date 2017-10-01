@@ -9,7 +9,7 @@ class Dashboard extends Component {
                 <div style={ style.dashboard }>
                     <div className="container">
                         <ul style={style.dashboardTabHolder}>
-                            <li style={style.dashboardTabs}>Job Orders</li>
+                            <li style={Object.assign({}, style.dashboardTabs, style.dashboardTabsInactive)}>Job Orders</li>
                             <li style={style.dashboardTabs}>Contracts</li>
                         </ul>
                     </div>

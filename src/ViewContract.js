@@ -60,7 +60,7 @@ class ViewContract extends Component {
     render(){
       let contract = this.getContract();
       return (
-        <div>
+        <div className="container">
           <h2>Will be a page to view and allow future employees to sign contracts</h2>
           <p>
             {contract.name}
