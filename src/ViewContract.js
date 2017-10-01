@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import LaborContract from './contracts/LaborContract.json'
-import style from './style/contracts';
 
 class ViewContract extends Component {
+
+    constructor(props){
+      super(props)
+
+      this.state = {
+        signees: []
+      };
+    }
 
     // blah not best way of doing this - should probably store by key. TODO
     getContract(){
@@ -61,49 +68,21 @@ class ViewContract extends Component {
     render(){
       let contract = this.getContract();
       return (
-        <div style={ style.contractView }>
-          <div className="container">
-            <div className="col-md-12" style={ style.contractDataBox }>
-              <h1>
-                {contract.name}
-              </h1>
-              <h3>Status: Unsigned</h3>
-
-                <div className="clearfix" style={ style.contractSpacing }>
-                  <div className="col-md-2"> Agency:</div>
-                  <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-                </div>
-
-                <div className="clearfix" style={ style.contractSpacing }>
-                  <div className="col-md-2">Employee:</div>
-                  <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-                </div>
-
-                <div className="clearfix" style={ style.contractSpacing }>
-                  <div className="col-md-2">Job Site:</div>
-                  <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-                </div>
-            </div>
-
-            <div className="col-md-12" style={Object.assign({}, style.contractDataBox, style.boxBlueTop)}>
-              <h3 style={ style.blueBoxHeader }>Contract Details</h3>
-
-              <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-3">Contract Address:</div>
-                <div className="col-md-9">{contract.address}</div>
-              </div>
-
-              <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-3">Position:</div>
-                <div className="col-md-9">{contract.type}</div>
-              </div>
-
-              <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-3">Site of Employment:</div>
-                <div className="col-md-9">{contract.site}</div>
-              </div>
-            </div>
-          </div>
+        <div>
+          <h2>Will be a page to view and allow future employees to sign contracts</h2>
+          <p>
+            {contract.name}
+          </p>
+          <p>
+            {contract.address}
+          </p>
+          <p>
+            {contract.type}
+          </p>
+          <p>
+            {contract.site}
+          </p>
+          <button onClick={() => this.signContract()}>Sign</button>
         </div>
       );
     }

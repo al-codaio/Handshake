@@ -15,14 +15,21 @@ class NewContract extends Component {
         inputs: {
           name: '',
           site: '',
-          type: ''
+          type: '',
+          vacation: '',
+          sick: '',
+          transport: false,
+          food: false,
+          housing: false
         }
       };
     }
 
     setInput(event){
       let currentInputs = this.state.inputs;
-      currentInputs[event.target.id] = event.target.value;
+      const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+      currentInputs[event.target.id] = value;
+
       this.setState({
         inputs: currentInputs
       });
@@ -86,23 +93,23 @@ class NewContract extends Component {
                     </div>
 
                     <div className="col-md-6">
-                      <div class="mui-checkbox">
+                      <div className="mui-checkbox">
                         <label>
-                          <input onChange={(e) => this.setInput(e)} id="transport" type="checkbox" value="transport" />
+                          <input onChange={(e) => this.setInput(e)} id="transport" type="checkbox" value="true" checked={this.state.inputs.transport} />
                           Free Transport
                         </label>
                       </div>
 
-                      <div class="mui-checkbox">
+                      <div className="mui-checkbox">
                         <label>
-                          <input onChange={(e) => this.setInput(e)} id="food" type="checkbox" value="food" />
+                          <input onChange={(e) => this.setInput(e)} id="food" type="checkbox" value="true" checked={this.state.inputs.food} />
                           Free Food
                         </label>
                       </div>
 
-                      <div class="mui-checkbox">
+                      <div className="mui-checkbox">
                         <label>
-                          <input onChange={(e) => this.setInput(e)} id="housing" type="checkbox" value="housing" />
+                          <input onChange={(e) => this.setInput(e)} id="housing" type="checkbox" value="true" checked={this.state.inputs.housing} />
                           Free Housing
                         </label>
                       </div>
