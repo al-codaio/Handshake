@@ -36,7 +36,7 @@ class ViewContract extends Component {
         let signee = JSON.parse(result.args.data);
         signee.address = result.args.signee;
         component.setState({
-          signees: component.state.contracts.concat([signee])
+          signees: component.state.signees.concat([signee])
         });
       });
     }
@@ -52,11 +52,11 @@ class ViewContract extends Component {
 
     loginUport(){
       this.props.appContext.uPort.requestCredentials().then((userProfile) => {
-        console.log(userProfile);
+        console.log(userProfile); // note that to get avatar we need to have an app registered
          this.setState({
            uPortUser: {
              name: userProfile.name,
-             country: userProfile.country,
+             //country: userProfile.country,
              address: userProfile.address,
              rinkebyAddress: MNID.decode(userProfile.address).address
            }
@@ -67,7 +67,7 @@ class ViewContract extends Component {
     signContract(){
       let laborContractABI = this.props.appContext.uPortWeb3.eth.contract(LaborContract.abi)
       let laborContractObj = laborContractABI.at(this.props.match.params.address)
-      laborContractObj.sign((error, txHash) => {
+      laborContractObj.sign(JSON.stringify(this.state.uPortUser), (error, txHash) => {
         if (error) { throw error }
           this.waitForMined(txHash, { blockNumber: null }, // see next area
           function pendingCB () {
@@ -134,10 +134,13 @@ class ViewContract extends Component {
             <h3>Signees</h3>
             <ul>
               {this.state.signees.map((signee, index) => <li key={index}>
-                {signee}
+                {signee.name}
+                {signee.address}
+                {signee.rinkebyAddress}
               </li>)}
             </ul>
           </div>
+          <h4>Contract</h4>
           <p>
             {contract.name}
           </p>
