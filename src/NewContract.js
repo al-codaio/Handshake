@@ -6,7 +6,6 @@ import Form from 'muicss/lib/react/form';
 import Input from 'muicss/lib/react/input';
 import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
-import { withRouter } from 'react-router';
 
 class NewContract extends Component {
     constructor(props){
@@ -33,6 +32,8 @@ class NewContract extends Component {
       const jsonString = JSON.stringify(this.state.inputs);
       this.props.appContext.handshakeContractInstance
         .createLaborContract(jsonString, {from: this.props.appContext.userAccount, gas: 4000000});
+
+        window.location.href= "/";
     }
 
     render() {
@@ -110,7 +111,7 @@ class NewContract extends Component {
                   </div>
                 </div>
 
-                <button style={Object.assign({}, style.btnDropdownMain, style.centerBtn) } onClick={() => this.createNewContract()}>Create Contract</button>
+                <button type="button" style={Object.assign({}, style.btnDropdownMain, style.centerBtn) } onClick={() => this.createNewContract()}>Create Contract</button>
 
                 <p><Link to={{ pathname: '/' }}></Link></p>
               </form>
