@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import style from './style/header';
 import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Header extends Component {
     render() {
@@ -15,8 +16,8 @@ class Header extends Component {
                     </div>
 
                     <div className="col-md-4">
-                        <Link style={style.headerLink} to={{ pathname: '/identity' }} activeStyle={{ fontWeight: '700' }}>Identity</Link>
-                        <Link style={style.headerLink} to={{ pathname: '/' }} activeStyle={{ fontWeight: '700' }}>Dashboard</Link>
+                        <NavLink style={style.headerLink} to={{ pathname: '/identity' }} activeClassName='header-active'>Identity</NavLink>
+                        <NavLink exact style={style.headerLink} to={{ pathname: '/' }} activeClassName='header-active'>Dashboard</NavLink>
                     </div>
                 </div>
             </div>

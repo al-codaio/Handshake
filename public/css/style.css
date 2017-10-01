@@ -7,6 +7,10 @@ body {
     font-size: 1.5em;
 }
 
+.header-active {
+    font-weight: 700;
+}
+
 h2 {
     color: #2C83AA;
     font-weight: 400;
