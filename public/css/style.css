@@ -12,6 +12,10 @@ h2 {
     font-weight: 400;
 }
 
+.logo a {
+    text-decoration: none;
+}
+
 .newContract h2 {
     text-align: center;
 }

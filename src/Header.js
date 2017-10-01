@@ -7,11 +7,11 @@ class Header extends Component {
         return (
             <div className="container">
                 <div style={style.header} className="row">
-                    <div className="col-md-8">
-                        <a href="#">
+                    <div className="col-md-8 logo">
+                        <Link to={{ pathname: '/' }}>
                             <img src={require('./img/handshake-logo.png')} />
-                        </a>
-                        <p style={style.subtext}>Universal migrant worker contracts on the blockchain</p>
+                            <p style={style.subtext}>Universal migrant worker contracts on the blockchain</p>
+                        </Link>
                     </div>
 
                     <div className="col-md-4">
