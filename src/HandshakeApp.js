@@ -40,12 +40,6 @@ class HandshakeApp extends Component {
       this.setupContractInstance();
       const uport = new Connect('MyDApp');
       this.appContext.uPortWeb3 = uport.getWeb3();
-      // uport.requestCredentials().then((credentials) => {
-      //   console.log(credentials)
-      //   const decodedId = MNID.decode(credentials.address)
-      //   const specificNetworkAddress = decodedId.address
-      //   console.log(specificNetworkAddress)
-      // })
     })
     .catch((e) => {
       console.log('Error finding web3.', e)
