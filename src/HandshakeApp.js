@@ -7,6 +7,7 @@ import NewContract from './NewContract';
 import NewAgency from './NewAgency';
 import ViewContract from './ViewContract';
 import Identity from './Identity';
+import Header from './Header';
 import {
   BrowserRouter as Router,
   Route,
@@ -98,13 +99,16 @@ class HandshakeApp extends Component {
     return(
       <div>
         <Router>
-          <Switch>
-            <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
-            <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
-            <Route exact path='/agency/new' render={() => <NewAgency appContext={this.appContext} />} />
-            <Route exact path='/identity' component={Identity}/>
-            <Route path='/contract/:address' render={(props) => <ViewContract {...props} appContext={this.appContext} contracts={this.state.contracts} />} />
-          </Switch>
+          <div>
+            <Header appContext={this.Header} />
+            <Switch>
+              <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
+              <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
+              <Route exact path='/agency/new' render={() => <NewAgency appContext={this.appContext} />} />
+              <Route exact path='/identity' component={Identity}/>
+              <Route path='/contract/:address' render={(props) => <ViewContract {...props} appContext={this.appContext} contracts={this.state.contracts} />} />
+            </Switch>
+          </div>
         </Router>
       </div>
     );

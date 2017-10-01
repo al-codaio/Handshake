@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-// import style from './style/style';
+import style from './style/contracts';
+import ReactDOM from 'react-dom';
+import Form from 'muicss/lib/react/form';
+import Input from 'muicss/lib/react/input';
+import Textarea from 'muicss/lib/react/textarea';
+import Button from 'muicss/lib/react/button';
 
 class NewContract extends Component {
     constructor(props){
@@ -31,22 +36,45 @@ class NewContract extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="container newContract" style={style.newContract}>
+              <form className="mui-form">
                 <h2>New Contract</h2>
-                <div>
-                  <label htmlFor="name">Name</label>
-                  <input type="text" value={this.state.inputs.name} id="name" onChange={(e) => this.setInput(e)}></input>
+
+                <div className="container">
+
+                  <div className="row">
+                    <h3>Job Details</h3>
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.name} id="name" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="name">Name</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.site} id="site" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="site">Site</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.type} id="type" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="type">Type</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="row">
+                    <h3>Benefits</h3>
+                  </div>
                 </div>
-                <div>
-                  <label htmlFor="site">Site</label>
-                  <input type="text" value={this.state.inputs.site} id="site" onChange={(e) => this.setInput(e)}></input>
-                </div>
-                <div>
-                  <label htmlFor="type">Type</label>
-                  <input type="text" value={this.state.inputs.type} id="type" onChange={(e) => this.setInput(e)}></input>
-                </div>
-                <button onClick={() => this.createNewContract()}>Create</button>
-                <Link to={{ pathname: '/' }}><p>Back to Dash</p></Link>
+
+                <button style={Object.assign({}, style.btnDropdownMain, style.centerBtn) } onClick={() => this.createNewContract()}>Create Contract</button>
+
+                <p><Link to={{ pathname: '/' }}></Link></p>
+              </form>
             </div>
         )
     }

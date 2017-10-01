@@ -7,6 +7,19 @@ body {
     font-size: 1.5em;
 }
 
+h2 {
+    color: #2C83AA;
+    font-weight: 400;
+}
+
+.newContract h2 {
+    text-align: center;
+}
+
+.newContract h3 {
+    margin-left: 15px;
+}
+
 .right {
     float: right;
 }

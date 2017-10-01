@@ -54,6 +54,7 @@ const style = {
   },
   dashboard: {
     backgroundColor: '#5CC3A6',
+    paddingTop: '25px',
     width: '100%'
   },
   dashboardTabHolder: {

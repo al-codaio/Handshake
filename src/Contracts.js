@@ -14,8 +14,8 @@ class Contracts extends Component {
                     </div>
 
                     <div className="col-md-4">
-                        <Link to={{ pathname: '/contract/new' }}><div style={ style.btnDropdownMain }>New Contract</div></Link>
-                        <Link to={{ pathname: '/agency/new' }}><div style={ style.btnDropdownMain }>Create Agency</div></Link>
+                        <Link to={{ pathname: '/contract/new' }}><div style={Object.assign({}, style.btnDropdownMain, style.dashBtn)}>New Contract</div></Link>
+                        <Link to={{ pathname: '/agency/new' }}><div style={Object.assign({}, style.btnDropdownMain, style.dashBtn)}>Create Agency</div></Link>
                     </div>
                 </div>
 

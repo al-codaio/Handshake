@@ -5,11 +5,21 @@ const contracts = {
         color: "#fff",
         cursor: "pointer",
         display: "inline-block",
-        float: "right",
         fontSize: "1.2em",
-        padding: "16px 26px",
+        padding: "16px 26px"
+    },
+
+    dashBtn: {
+        float: "right",
         marginTop: "31px",
         marginRight: "10px"
+    },
+
+    centerBtn: {
+        border: "none",
+        display: "block",
+        margin: "0 auto",
+        width: "180px"
     }
 }
 
