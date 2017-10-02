@@ -18,7 +18,7 @@ class Home extends Component {
     }
   }
 
-  login(){
+  loginOrRegister(){
     if (this.props.appContext.userAccount == null){
       console.log('Show user error about metamask account');
       return;
@@ -33,16 +33,24 @@ class Home extends Component {
           });
           return;
         }
-        smartContract.getAgencyData(this.props.appContext.userAccount)
-        .then(result => console.log(result));
+        this.login();
       })
   }
 
-  // Register current user as agency if not already registered. Can improve in future
-  registerAgency(){
+  login(){
+    let smartContract = this.props.appContext.handshakeContractInstance;
+    smartContract.getAgencyData.call(this.props.appContext.userAccount)
+      .then(data => {
+        var obj = JSON.parse(data);
+        this.props.setUserDetails(obj);
+        this.props.history.push('/dashboard');
+      })
+  }
+
+  register(){
     const agencyJson = JSON.stringify(this.state.newAgency);
-    this.appContext.handshakeContractInstance
-      .registerAgency(this.appContext.userAccount, agencyJson, {from: this.appContext.userAccount})
+    this.props.appContext.handshakeContractInstance
+      .registerAgency(this.props.appContext.userAccount, agencyJson, {from: this.props.appContext.userAccount, gas: 4000000})
       .then(result => console.log(result));
   }
 
@@ -58,8 +66,8 @@ class Home extends Component {
     return (
       <div>
         {this.state.showReg
-        ? <AgencyForm newAgency={this.state.newAgency} handleInputChange={(e) => this.handleInputChange(e)} registerAgency={() => this.registerAgency()}  />
-        : <p onClick={() => this.login()}>Log In As Agency</p>}
+        ? <AgencyForm newAgency={this.state.newAgency} handleInputChange={(e) => this.handleInputChange(e)} registerAgency={() => this.register()}  />
+        : <p onClick={() => this.loginOrRegister()}>Log In As Agency</p>}
       </div>
     );
   }

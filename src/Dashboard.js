@@ -16,7 +16,7 @@ class Dashboard extends Component {
                 </div>
 
                 <div>
-                    <Contracts contracts={this.props.contracts} />
+                    <Contracts appContext={this.props.appContext} contracts={this.props.contracts} />
                 </div>
             </div>
         )

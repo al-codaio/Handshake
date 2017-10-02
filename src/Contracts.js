@@ -9,13 +9,13 @@ class Contracts extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8">
-                        <h1>Agency Name</h1>
+                        <h1>{this.props.appContext.userDetails.name}</h1>
                         <p>Verified!</p>
                     </div>
 
                     <div className="col-md-4">
                         <Link to={{ pathname: '/contract/new' }}><div style={Object.assign({}, style.btnDropdownMain, style.dashBtn)}>New Contract</div></Link>
-                        <Link to={{ pathname: '/agency/new' }}><div style={Object.assign({}, style.btnDropdownMain, style.dashBtn)}>Create Agency</div></Link>
+                        {/* <Link to={{ pathname: '/agency/new' }}><div style={Object.assign({}, style.btnDropdownMain, style.dashBtn)}>Create Agency</div></Link> */}
                     </div>
                 </div>
 
