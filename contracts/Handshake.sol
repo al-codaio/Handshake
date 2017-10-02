@@ -11,6 +11,7 @@ contract Handshake is Owned, HandshakeI {
 
   address[] public agencies;
   mapping(address => bool) public agencyExists;
+  mapping(address => string) public agencyData;
 
   event LogLaborContractCreated(address indexed agency, address indexed atAddress, string data);
   event LogRegistration(address indexed sender, address indexed agency);
@@ -27,12 +28,17 @@ contract Handshake is Owned, HandshakeI {
     return laborContract;
   }
 
-  function registerAgency(address agency) public  returns(bool){
+  function registerAgency(address agency, string data) public returns(bool){
     require(!isRegistered(agency));
     agencies.push(agency);
     agencyExists[agency] = true;
+    agencyData[agency] = data;
     LogRegistration(msg.sender, agency);
     return true;
+  }
+
+  function getAgencyData(address agency) public constant returns(string){
+    return agencyData[agency];
   }
 
   function isRegistered(address agency) public constant returns(bool){

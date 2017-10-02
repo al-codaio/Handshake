@@ -6,6 +6,7 @@ import Dashboard from './Dashboard';
 import NewContract from './NewContract';
 import NewAgency from './NewAgency';
 import ViewContract from './ViewContract';
+import Home from './Home';
 import Identity from './Identity';
 import Agency from './Agency';
 import Header from './Header';
@@ -26,7 +27,8 @@ class HandshakeApp extends Component {
       uPortWeb3: null,
       web3: null,
       handshakeContractInstance: null,
-      userAccount: null
+      userAccount: null,
+      userDetails: null
     };
 
     this.state = {
@@ -50,15 +52,18 @@ class HandshakeApp extends Component {
   }
 
   setupContractInstance(){
+    console.log('setting up contract');
     const contract = require('truffle-contract')
     const handshake = contract(Handshake)
     handshake.setProvider(this.appContext.web3.currentProvider)
     this.appContext.web3.eth.getAccounts((error, accounts) => {
       this.appContext.userAccount = accounts[0];
+      console.log('gt accounts fine');
       handshake.deployed().then((instance) =>{
+          console.log(instance);
           this.appContext.handshakeContractInstance = instance;
           this.setupContractListeners(this);
-          this.registerAgency();
+          //this.registerAgency();
       });
     });
   }
@@ -82,15 +87,15 @@ class HandshakeApp extends Component {
   }
 
   // Register current user as agency if not already registered. Can improve in future
-  registerAgency(){
-    this.appContext.handshakeContractInstance
-    .isRegistered.call(this.appContext.userAccount)
-    .then(registered =>{
-      if (!registered)
-        this.appContext.handshakeContractInstance
-          .registerAgency(this.appContext.userAccount, {from: this.appContext.userAccount});
-    });
-  }
+  // registerAgency(){
+  //   this.appContext.handshakeContractInstance
+  //   .isRegistered.call(this.appContext.userAccount)
+  //   .then(registered =>{
+  //     if (!registered)
+  //       this.appContext.handshakeContractInstance
+  //         .registerAgency(this.appContext.userAccount, {from: this.appContext.userAccount});
+  //   });
+  // }
 
   render(){
     return(
@@ -99,7 +104,8 @@ class HandshakeApp extends Component {
           <div>
             <Header appContext={this.Header} />
             <Switch>
-              <Route exact path='/' render={() => <Dashboard contracts={this.state.contracts}/>}/>
+              <Route exact path='/' render={() => <Home appContext={this.appContext}/>}/>
+              <Route exact path='/dashboard' render={() => <Dashboard contracts={this.state.contracts}/>}/>
               <Route exact path='/contract/new' render={() => <NewContract appContext={this.appContext} />} />
               <Route exact path='/agency/new' render={() => <NewAgency appContext={this.appContext} />} />
               <Route exact path='/identity' component={Agency}/>
