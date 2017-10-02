@@ -40,7 +40,7 @@ class NewContract extends Component {
       this.props.appContext.handshakeContractInstance
         .createLaborContract(jsonString, {from: this.props.appContext.userAccount, gas: 4000000});
 
-        window.location.href= "/";
+      this.props.history.push('/dashboard');
     }
 
     render() {

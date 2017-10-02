@@ -15,10 +15,10 @@ class Header extends Component {
                         </Link>
                     </div>
 
-                    <div className="col-md-4">
+                    {/* <div className="col-md-4">
                         <NavLink style={style.headerLink} to={{ pathname: '/identity' }} activeClassName='header-active'>Identity</NavLink>
                         <NavLink exact style={style.headerLink} to={{ pathname: '/' }} activeClassName='header-active'>Dashboard</NavLink>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

@@ -51,7 +51,7 @@ class Home extends Component {
     const agencyJson = JSON.stringify(this.state.newAgency);
     this.props.appContext.handshakeContractInstance
       .registerAgency(this.props.appContext.userAccount, agencyJson, {from: this.props.appContext.userAccount, gas: 4000000})
-      .then(result => console.log(result));
+      .then(result => this.login());
   }
 
   handleInputChange(event){
@@ -67,7 +67,7 @@ class Home extends Component {
       <div>
         {this.state.showReg
         ? <AgencyForm newAgency={this.state.newAgency} handleInputChange={(e) => this.handleInputChange(e)} registerAgency={() => this.register()}  />
-        : <p onClick={() => this.loginOrRegister()}>Log In As Agency</p>}
+        : <div className="button-centre" onClick={() => this.loginOrRegister()}><p>Log In / Register</p></div>}
       </div>
     );
   }

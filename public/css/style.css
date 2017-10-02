@@ -2,6 +2,22 @@ a {
     text-decoration: underline;
 }
 
+.button-centre{
+  cursor: pointer;
+  margin: auto;
+  margin-top: 60px;
+  width: 50%;
+  border: 3px solid #2C83AA;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: #2C83AA;
+}
+
+.button-centre p {
+  font-size: 64px;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     font-size: 1.5em;
