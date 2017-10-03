@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { MNID } from 'uport-connect'
+import style from './style/style';
+import { Link } from 'react-router-dom';
 import LaborContract from './contracts/LaborContract.json'
 
 class ViewContract extends Component {
@@ -112,65 +114,82 @@ class ViewContract extends Component {
       let contract = this.getContract();
       return (
         <div>
-          <h2>Will be a page to view and allow future employees to sign contracts</h2>
-          {this.state.uPortUser
-            ? <div>
-              <h4>Logged in as:</h4>
-                <p>
-                  Name: {this.state.uPortUser.name}
-                </p>
-                <p>
-                  Country: {this.state.uPortUser.country}
-                </p>
-                <p>
-                  uPort Address: {this.state.uPortUser.address}
-                </p>
-                <p>
-                  Rinkeby Address :{this.state.uPortUser.rinkebyAddress}
-                </p>
-            </div>
-            : null}
-          <div>
-            <h3>Signees</h3>
-            <ul>
-              {this.state.signees.map((signee, index) => <li key={index}>
-                {signee.name}
-                {signee.address}
-                {signee.rinkebyAddress}
-              </li>)}
-            </ul>
+          <div style={ style.dashboard }>
+              <div className="container">
+                  <ul style={style.dashboardTabHolder}>
+                      <li style={Object.assign({}, style.dashboardTabs, style.dashboardTabsInactive)}>Job Orders</li>
+                      <Link to={{ pathname: '/dashboard' }}>
+                        <li style={style.dashboardTabs}>Contracts</li>
+                      </Link>
+                  </ul>
+              </div>
           </div>
-          <h4>Contract</h4>
-          <p>
-            {contract.name}
-          </p>
-          <p>
-            {contract.address}
-          </p>
-          <p>
-            {contract.type}
-          </p>
-          <p>
-            {contract.site}
-          </p>
-          <p>
-            {contract.vacation}
-          </p>
-          <p>
-            {contract.sick}
-          </p>
-          <p>
-            {contract.food}
-          </p>
-          <p>
-            {contract.transport}
-          </p>
-          <p>
-            {contract.housing}
-          </p>
-          {this.state.uPortUser
-          ? <button onClick={() => this.signContract()}>Sign</button>
-          : <button onClick={() => this.loginUport()}>Log in with uPort</button>}
+          <div className="container">
+            <div className="row">
+              <div className="col-md-8 contract-details">
+                <h1>{contract.name}</h1>
+                <p>At address: <span>{contract.address}</span></p>
+                <div className="row">
+                  <div className="col-md-6">
+                    <strong>Site:</strong>
+                  </div>
+                  <div className="col-md-6">
+                    {contract.site}
+                  </div>
+                  <div className="col-md-6">
+                    <strong>Housing:</strong>
+                  </div>
+                  <div className="col-md-6">
+                    {contract.housing ? "Included" : "Not Included"}
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-4 user-details">
+                {this.state.uPortUser
+                ? <div>
+                    <h2>
+                      {this.state.uPortUser.name}
+                    </h2>
+                    <p>
+                      uPort Address: {this.state.uPortUser.address}
+                    </p>
+                    <p>
+                      Rinkeby Address: {this.state.uPortUser.rinkebyAddress}
+                    </p>
+                </div>
+                : <p onClick={() => this.loginUport()}>Sign in to uPort</p>}
+              </div>
+
+              {this.state.signees.length > 0
+              ? <div className="col-md-12 signee-table">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>uPort Address</th>
+                        <th>Rinkeby Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {this.state.signees.map((signee, index) =>
+                        <tr key={index}>
+                          <td>{signee.name}</td>
+                          <td>{signee.address}</td>
+                          <td>{signee.rinkebyAddress}</td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              : null}
+
+
+            {this.state.uPortUser
+            ? <button onClick={() => this.signContract()}>Sign</button>
+            : null}
+            </div>
+          </div>
         </div>
       );
     }
