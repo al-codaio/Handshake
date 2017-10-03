@@ -145,12 +145,12 @@ class ViewContract extends Component {
                 <div className="col-md-9">{contract.transport ? "Included" : "Not Included"}</div>
               </div>
               <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-3">Housing:</div>
-                <div className="col-md-9">{contract.housing ? "Included" : "Not Included"}</div>
-              </div>
-              <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-3">Food:</div>
                 <div className="col-md-9">{contract.food ? "Included" : "Not Included"}</div>
+              </div>
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Housing:</div>
+                <div className="col-md-9">{contract.housing ? "Included" : "Not Included"}</div>
               </div>
             </div>
 
@@ -183,25 +183,47 @@ class ViewContract extends Component {
           : null}
 
           <div className="col-md-12" style={ style.contractDataBox }>
-            <h1>
-              {contract.name}
-            </h1>
-            <h3>Status: Unsigned</h3>
+            <h2>
+              {contract.name} - Sign
+            </h2>
+            {/* <h3>Status: Unsigned</h3> */}
 
-              <div className="clearfix" style={ style.contractSpacing }>
+              {/* <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-2"> Agency:</div>
                 <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-              </div>
+              </div> */}
 
-              <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-2">Employee:</div>
-                <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
+              {this.state.uPortUser
+              ?
+              <div className="clearfix">
+                <h3>Logged in as:</h3>
+                <div className="clearfix" style={ style.contractSpacing }>
+                  <div className="col-md-3">Name:</div>
+                  <div className="col-md-9">{this.state.uPortUser.name}</div>
+                </div>
+                <div className="clearfix" style={ style.contractSpacing }>
+                  <div className="col-md-3">uPort Address:</div>
+                  <div className="col-md-9">{this.state.uPortUser.address}</div>
+                </div>
+                <div className="clearfix" style={ style.contractSpacing }>
+                  <div className="col-md-3">Rinkeby Address:</div>
+                  <div className="col-md-9">{this.state.uPortUser.rinkebyAddress}</div>
+                </div>
+                <div className="clearfix" style={ style.contractSpacing }>
+                  <div className="col-md-3">Sign this Contract:</div>
+                  <div className="col-md-9"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
+                </div>
               </div>
-
+              :
               <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Employee:</div>
+                <div className="col-md-9"><button style={ style.secondaryBtn } onClick={() => this.loginUport()}>Log in with uPort</button></div>
+              </div>}
+
+              {/* <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-2">Job Site:</div>
                 <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-              </div>
+              </div> */}
           </div>
 
           </div>
