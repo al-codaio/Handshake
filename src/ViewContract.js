@@ -115,28 +115,6 @@ class ViewContract extends Component {
       return (
         <div style={ style.contractView }>
           <div className="container">
-            <div className="col-md-12" style={ style.contractDataBox }>
-              <h1>
-                {contract.name}
-              </h1>
-              <h3>Status: Unsigned</h3>
-
-                <div className="clearfix" style={ style.contractSpacing }>
-                  <div className="col-md-2"> Agency:</div>
-                  <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-                </div>
-
-                <div className="clearfix" style={ style.contractSpacing }>
-                  <div className="col-md-2">Employee:</div>
-                  <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-                </div>
-
-                <div className="clearfix" style={ style.contractSpacing }>
-                  <div className="col-md-2">Job Site:</div>
-                  <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-                </div>
-            </div>
-
             <div className="col-md-12" style={Object.assign({}, style.contractDataBox, style.boxBlueTop)}>
               <h3 style={ style.blueBoxHeader }>Contract Details</h3>
 
@@ -154,7 +132,78 @@ class ViewContract extends Component {
                 <div className="col-md-3">Site of Employment:</div>
                 <div className="col-md-9">{contract.site}</div>
               </div>
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Vacation Leave:</div>
+                <div className="col-md-9">{contract.vacation}</div>
+              </div>
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Sick Leave:</div>
+                <div className="col-md-9">{contract.sick}</div>
+              </div>
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Transport:</div>
+                <div className="col-md-9">{contract.transport ? "Included" : "Not Included"}</div>
+              </div>
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Housing:</div>
+                <div className="col-md-9">{contract.housing ? "Included" : "Not Included"}</div>
+              </div>
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Food:</div>
+                <div className="col-md-9">{contract.food ? "Included" : "Not Included"}</div>
+              </div>
             </div>
+
+            {this.state.signees.length > 0
+            ? <div className="col-md-12" style={ style.contractDataBox }>
+                <h2>
+                  Signees
+                </h2>
+                   <div className="col-md-12 signee-table">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Name</th>
+                            <th>uPort Address</th>
+                            <th>Rinkeby Address</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {this.state.signees.map((signee, index) =>
+                            <tr key={index}>
+                              <td>{signee.name}</td>
+                              <td>{signee.address}</td>
+                              <td>{signee.rinkebyAddress}</td>
+                            </tr>
+                          )}
+                        </tbody>
+                      </table>
+                    </div>
+              </div>
+          : null}
+
+          <div className="col-md-12" style={ style.contractDataBox }>
+            <h1>
+              {contract.name}
+            </h1>
+            <h3>Status: Unsigned</h3>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-2"> Agency:</div>
+                <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-2">Employee:</div>
+                <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-2">Job Site:</div>
+                <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
+              </div>
+          </div>
+
           </div>
         </div>
 

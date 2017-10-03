@@ -37,56 +37,77 @@ class AgencyForm extends Component {
     return (
       <div className="container">
         <div className="row">
-            <div className="col-md-6">
-              <input
-                type='text'
-                id='name'
-                placeholder={"Your Agency's Name"}
-                style={ style.agencyFormFields}
-                value={ this.props.newAgency.name }
-                onChange={(e) => this.props.handleInputChange(e)} />
-              <input
-                type='text'
-                id='city'
-                placeholder='City'
-                style={ style.agencyFormFields}
-                value={ this.props.newAgency.city }
-                onChange={(e) => this.props.handleInputChange(e)}/>
-              <input
-                type='text'
-                id='country'
-                placeholder='Country'
-                style={ style.agencyFormFields}
-                value={ this.props.newAgency.country }
-                onChange={(e) => this.props.handleInputChange(e)}/>
+            <div className="col-md-12">
+              <div className="mui-textfield">
+                <input
+                  type='text'
+                  id='name'
+                  placeholder={"Your Agency's Name"}
+                  style={ style.agencyFormFields}
+                  value={ this.props.newAgency.name }
+                  onChange={(e) => this.props.handleInputChange(e)} />
+              </div>
             </div>
-            <div className="col-md-6">
-              <input
-                type='text'
-                id='contact_name'
-                placeholder='Contact Name'
-                style={ style.agencyFormFields}
-                value={ this.props.newAgency.contact_name }
-                onChange={(e) => this.props.handleInputChange(e)}/>
-              <input
-                type='text'
-                id='contact_phone'
-                placeholder='Contact Phone'
-                style={ style.agencyFormFields}
-                value={ this.props.newAgency.contact_phone }
-                onChange={(e) => this.props.handleInputChange(e)}/>
-              <input
-                type='text'
-                id='contact_email'
-                placeholder='Contact Email'
-                style={ style.agencyFormFields}
-                value={ this.props.newAgency.contact_email }
-                onChange={(e) => this.props.handleInputChange(e)}/>
+            <div className="col-md-12">
+              <div className="mui-textfield">
+                <input
+                  type='text'
+                  id='city'
+                  placeholder='City'
+                  style={ style.agencyFormFields}
+                  value={ this.props.newAgency.city }
+                  onChange={(e) => this.props.handleInputChange(e)}/>
+              </div>
             </div>
-
-          <button
-            style={ style.formPost }
-            onClick={() => this.props.registerAgency()}>Register Agency</button>
+            <div className="col-md-12">
+              <div className="mui-textfield">
+                <input
+                  type='text'
+                  id='country'
+                  placeholder='Country'
+                  style={ style.agencyFormFields}
+                  value={ this.props.newAgency.country }
+                  onChange={(e) => this.props.handleInputChange(e)}/>
+              </div>
+            </div>
+            <div className="col-md-12">
+              <div className="mui-textfield">
+                <input
+                  type='text'
+                  id='contact_name'
+                  placeholder='Contact Name'
+                  style={ style.agencyFormFields}
+                  value={ this.props.newAgency.contact_name }
+                  onChange={(e) => this.props.handleInputChange(e)}/>
+              </div>
+            </div>
+            <div className="col-md-12">
+              <div className="mui-textfield">
+                <input
+                  type='text'
+                  id='contact_phone'
+                  placeholder='Contact Phone'
+                  style={ style.agencyFormFields}
+                  value={ this.props.newAgency.contact_phone }
+                  onChange={(e) => this.props.handleInputChange(e)}/>
+              </div>
+            </div>
+            <div className="col-md-12">
+              <div className="mui-textfield">
+                <input
+                  type='text'
+                  id='contact_email'
+                  placeholder='Contact Email'
+                  style={ style.agencyFormFields}
+                  value={ this.props.newAgency.contact_email }
+                  onChange={(e) => this.props.handleInputChange(e)}/>
+              </div>
+            </div>
+            <div className="col-md-12">
+              <button
+                style={ style.formPost }
+                onClick={() => this.props.registerAgency()}>Register Agency</button>
+            </div>
 
         </div>
       </div>
