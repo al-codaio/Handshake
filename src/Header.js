@@ -10,7 +10,7 @@ class Header extends Component {
                 <div style={style.header} className="row">
                     <div className="col-md-8 logo">
                         <Link to={{ pathname: '/' }}>
-                            <img src={require('./img/handshake-logo.png')} />
+                            <img alt="Handshake logo" src={require('./img/handshake-logo.png')} />
                             <p style={style.subtext}>Universal migrant worker contracts on the blockchain</p>
                         </Link>
                     </div>

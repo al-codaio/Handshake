@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { MNID } from 'uport-connect'
 import style from './style/contracts';
-import { Link } from 'react-router-dom';
 import LaborContract from './contracts/LaborContract.json'
 
 class ViewContract extends Component {
@@ -47,7 +46,7 @@ class ViewContract extends Component {
     getContract(){
       let contractAddress = this.props.match.params.address;
       for(let i=0; i< this.props.contracts.length; i++){
-        if (this.props.contracts[i].address == contractAddress)
+        if (this.props.contracts[i].address === contractAddress)
           return this.props.contracts[i];
       }
     }

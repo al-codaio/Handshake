@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Connect, MNID } from 'uport-connect'
+import { Connect } from 'uport-connect'
 import Handshake from './contracts/Handshake.json'
 import getWeb3 from './utils/getWeb3';
 import Dashboard from './Dashboard';
@@ -7,7 +7,6 @@ import NewContract from './NewContract';
 import NewAgency from './NewAgency';
 import ViewContract from './ViewContract';
 import Home from './Home';
-import Identity from './Identity';
 import Agency from './Agency';
 import Header from './Header';
 import {
