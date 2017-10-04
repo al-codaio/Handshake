@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import style from './style/style';
-import marked from 'marked';
 
 class Agency extends Component {
 
@@ -11,14 +10,14 @@ class Agency extends Component {
           <div className="col-md-12" style={ style.agencyDataBox }>
             <div className="row">
               <div className="col-md-2">
-                <img style={ style.profilePicture } src={require('./img/staffhouse-logo.png')} />
+                <img alt="Agency logo" style={ style.profilePicture } src={require('./img/staffhouse-logo.png')} />
               </div>
 
               <div className="col-md-7">
                 <h1>Agency Name</h1>
-                <p><img src={require('./img/check.png')} /> verified by the POEA</p>
-                <p><img src={require('./img/check.png')} /> verified by the IOM as an <strong>Ethical Organization</strong></p>
-                <p><a href="#">Add verification</a></p>
+                <p><img alt="Verification tick" src={require('./img/check.png')} /> verified by the POEA</p>
+                <p><img alt="Verification tick" src={require('./img/check.png')} /> verified by the IOM as an <strong>Ethical Organization</strong></p>
+                <p><a href="#add-verification">Add verification</a></p>
                 <p style={ style.agencyDescription }>An 100% Filipino-owned corporation, Staffhouse International Resources has been recruiting top-level professionals since its inception in 1999. Within a mere few years, Staffhouse has become an industry leader, gaining the trust of both workforce candidates and the world’s biggest companies.</p>
               </div>
 
@@ -40,7 +39,7 @@ class Agency extends Component {
               Assessments
             </h3>
 
-            <p><a href="#">IOM Gender Sensitivity</a> (not started)</p>
+            <p><a href="#gender-sensitivity">IOM Gender Sensitivity</a> (not started)</p>
           </div>
 
           <h3>{this.props.name}</h3>

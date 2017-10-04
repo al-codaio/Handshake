@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import AgencyBox from './AgencyBox'; 
+import AgencyBox from './AgencyBox';
 // import style from './style/style';
 
 class NewAgency extends Component {
-    constructor(props){
-      super(props)
-    }
     render() {
         return (
             <div className="container">
