@@ -14,7 +14,7 @@ class Agency extends Component {
               </div>
 
               <div className="col-md-7">
-                <h1>Agency Name</h1>
+                <h1>{this.props.appContext.userDetails.name}</h1>
                 <p><img alt="Verification tick" src={require('./img/check.png')} /> verified by the POEA</p>
                 <p><img alt="Verification tick" src={require('./img/check.png')} /> verified by the IOM as an <strong>Ethical Organization</strong></p>
                 <p><a href="#add-verification">Add verification</a></p>
@@ -23,12 +23,12 @@ class Agency extends Component {
 
               <div className="col-md-3">
                 <ul style={ style.contactInfo }>
-                  <li>Id</li>
-                  <li>City</li>
-                  <li>Country</li>
-                  <li>Contact Name</li>
-                  <li>Contact Phone</li>
-                  <li>Email</li>
+                  <li>{this.props.appContext.userAccount.substr(0,8) + '...'}</li>
+                  <li>{this.props.appContext.userDetails.city}</li>
+                  <li>{this.props.appContext.userDetails.country}</li>
+                  <li>{this.props.appContext.userDetails.contact_name}</li>
+                  <li>{this.props.appContext.userDetails.contact_phone}</li>
+                  <li>{this.props.appContext.userDetails.contact_email}</li>
                 </ul>
               </div>
             </div>

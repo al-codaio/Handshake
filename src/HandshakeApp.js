@@ -97,7 +97,7 @@ class HandshakeApp extends Component {
               <Route exact path='/dashboard' render={() => <Dashboard appContext={this.appContext} contracts={this.state.contracts}/>}/>
               <Route exact path='/contract/new' render={(props) => <NewContract {...props} appContext={this.appContext} />} />
               <Route exact path='/agency/new' render={() => <NewAgency appContext={this.appContext} />} />
-              <Route exact path='/identity' component={Agency}/>
+              <Route exact path='/identity' render={() => <Agency appContext={this.appContext} />}/>
               <Route path='/contract/:address' render={(props) => <ViewContract {...props} appContext={this.appContext} contracts={this.state.contracts} />} />
             </Switch>
           </div>
