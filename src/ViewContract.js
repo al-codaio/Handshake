@@ -215,14 +215,14 @@ class ViewContract extends Component {
               </div>
               :
               <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-3">Employee:</div>
-                <div className="col-md-9"><button style={ style.secondaryBtn } onClick={() => this.loginUport()}>Log in with uPort</button></div>
+                <div className="col-md-3">Employee/Candidate (Origin):</div>
+                <div className="col-md-9"><button style={ style.secondaryBtn } onClick={() => this.loginUport()}>Sign Contract</button></div>
               </div>}
 
-              {/* <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-2">Job Site:</div>
-                <div className="col-md-10"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Sign</button></div>
-              </div> */}
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Employer/Immigration (Destination)</div>
+                <div className="col-md-9"><button style={ style.secondaryBtn } onClick={() => this.signContract()}>Verify Contract</button></div>
+              </div>
           </div>
 
           </div>

@@ -41,28 +41,7 @@ class Agency extends Component {
 
             <p><a href="#gender-sensitivity">IOM Gender Sensitivity</a> (not started)</p>
           </div>
-
-          <h3>{this.props.name}</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th style={ style.headers }>ID</th>
-                <th style={ style.headers }>City</th>
-                <th style={ style.headers }>Country</th>
-                <th style={ style.headers }>Contact Name</th>
-                <th style={ style.headers }>Contact Phone</th>
-                <th style={ style.headers }>Contact E-mail</th>
-              </tr>
-              <tr>
-                <td style={ style.headers }>{this.props.uniqueID}</td>
-                <td style={ style.headers }>{this.props.city}</td>
-                <td style={ style.headers }>{this.props.country}</td>
-                <td style={ style.headers }>{this.props.contact_name}</td>
-                <td style={ style.headers }>{this.props.contact_phone}</td>
-                <td style={ style.headers }>{this.props.contact_email}</td>
-              </tr>
-            </tbody>
-          </table>
+          
         </div>
       </div>
     )
