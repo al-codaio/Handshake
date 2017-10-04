@@ -38,7 +38,7 @@ class NewContract extends Component {
     createNewContract(){
       const jsonString = JSON.stringify(this.state.inputs);
       this.props.appContext.handshakeContractInstance
-        .createLaborContract(jsonString, {from: this.props.appContext.userAccount, gas: 4000000});
+        .createLaborContract(jsonString, {from: this.props.appContext.userAccount, gas: 2000000});
 
       this.props.history.push('/dashboard');
     }

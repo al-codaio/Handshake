@@ -50,7 +50,7 @@ class Home extends Component {
   register(){
     const agencyJson = JSON.stringify(this.state.newAgency);
     this.props.appContext.handshakeContractInstance
-      .registerAgency(this.props.appContext.userAccount, agencyJson, {from: this.props.appContext.userAccount, gas: 4000000})
+      .registerAgency(this.props.appContext.userAccount, agencyJson, {from: this.props.appContext.userAccount, gas: 1000000})
       .then(result => this.login());
   }
 
