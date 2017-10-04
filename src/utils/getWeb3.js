@@ -23,7 +23,7 @@ let getWeb3 = new Promise(function(resolve, reject) {
       var provider = new Web3.providers.HttpProvider('http://localhost:8545')
 
       web3 = new Web3(provider)
-
+      window.web3 = web3;
       results = {
         web3: web3
       }
