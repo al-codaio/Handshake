@@ -131,25 +131,71 @@ class ViewContract extends Component {
                 <div className="col-md-3">Site of Employment:</div>
                 <div className="col-md-9">{contract.site}</div>
               </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Contract Duration:</div>
+                <div className="col-md-9">{contract.duration}</div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Monthly Salary:</div>
+                <div className="col-md-9">{contract.salary}</div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Hours per Day (max):</div>
+                <div className="col-md-9">{contract.hours}</div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Days per Week (max):</div>
+                <div className="col-md-9">{contract.days}</div>
+              </div>
+
+              <h3>Benefits</h3>
               <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-3">Vacation Leave:</div>
                 <div className="col-md-9">{contract.vacation}</div>
               </div>
+
               <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-3">Sick Leave:</div>
                 <div className="col-md-9">{contract.sick}</div>
               </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Termination Advence:</div>
+                <div className="col-md-9">{contract.termination}</div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Insurance Details:</div>
+                <div className="col-md-9">{contract.insurance}</div>
+              </div>
+
               <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-3">Transport:</div>
                 <div className="col-md-9">{contract.transport ? "Included" : "Not Included"}</div>
               </div>
+
               <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-3">Food:</div>
                 <div className="col-md-9">{contract.food ? "Included" : "Not Included"}</div>
               </div>
+
               <div className="clearfix" style={ style.contractSpacing }>
                 <div className="col-md-3">Housing:</div>
                 <div className="col-md-9">{contract.housing ? "Included" : "Not Included"}</div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Free Emergency Medical:</div>
+                <div className="col-md-9">{contract.medical ? "Included" : "Not Included"}</div>
+              </div>
+
+              <div className="clearfix" style={ style.contractSpacing }>
+                <div className="col-md-3">Free Emergency Dental:</div>
+                <div className="col-md-9">{contract.dental ? "Included" : "Not Included"}</div>
               </div>
             </div>
 

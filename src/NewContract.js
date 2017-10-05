@@ -68,7 +68,36 @@ class NewContract extends Component {
                         <label htmlFor="type">Employee Position</label>
                       </div>
                     </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.duration} id="duration" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="type">Contract Duration</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.salary} id="salary" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="type">Monthly Salary</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.hours} id="hours" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="type">Hours per Day (max)</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.days} id="days" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="type">Days per Week (max)</label>
+                      </div>
+                    </div>
                   </div>
+
 
                   <div className="row">
                     <h3>Benefits</h3>
@@ -88,6 +117,20 @@ class NewContract extends Component {
                     </div>
 
                     <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.termination} id="termination" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="termination">Termination Advance</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-6">
+                      <div className="mui-textfield">
+                        <input type="text" value={this.state.inputs.insurance} id="insurance" onChange={(e) => this.setInput(e)}></input>
+                        <label htmlFor="insurance">Insurance Details</label>
+                      </div>
+                    </div>
+
+                    <div className="col-md-12">
                       <div className="mui-checkbox">
                         <label>
                           <input onChange={(e) => this.setInput(e)} id="transport" type="checkbox" value="true" checked={this.state.inputs.transport} />
@@ -106,6 +149,20 @@ class NewContract extends Component {
                         <label>
                           <input onChange={(e) => this.setInput(e)} id="housing" type="checkbox" value="true" checked={this.state.inputs.housing} />
                           Free Housing
+                        </label>
+                      </div>
+
+                      <div className="mui-checkbox">
+                        <label>
+                          <input onChange={(e) => this.setInput(e)} id="medical" type="checkbox" value="true" checked={this.state.inputs.medical} />
+                          Free Emergency Medical
+                        </label>
+                      </div>
+
+                      <div className="mui-checkbox">
+                        <label>
+                          <input onChange={(e) => this.setInput(e)} id="dental" type="checkbox" value="true" checked={this.state.inputs.dental} />
+                          Free Emergency Dental
                         </label>
                       </div>
                     </div>

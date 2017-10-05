@@ -49,24 +49,26 @@ const style = {
     padding:'0 10px',
     borderRadius:'3px',
     height:'40px',
-    width:'75%'
+    width:'100%'
   },
   contactInfo: {
     listStyle: "none",
     lineHeight: "1.8",
     marginTop: "26px"
   },
+  formHeader: {
+    textAlign: "center"
+  },
   formPost: {
-    minWidth:'100px',
-    flex:'1',
-    height:'40px',
-    margin:'5px 3px',
-    fontSize:'20px',
-    backgroundColor:'#275a94',
-    borderRadius:'3px',
-    color:'#fff',
-    letterSpacing:'.055rem',
-    border:'none'
+    backgroundColor: "#2C83AA",
+    borderRadius: "2px",
+    border: "none",
+    color: "#fff",
+    cursor: "pointer",
+    display: "block",
+    fontSize: "1.2em",
+    padding: "16px 26px",
+    margin: "0 auto"
   },
   dashboard: {
     backgroundColor: '#5CC3A6',

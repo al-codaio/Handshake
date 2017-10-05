@@ -23,6 +23,7 @@ class Home extends Component {
       console.log('Show user error about metamask account');
       return;
     }
+
     let smartContract = this.props.appContext.handshakeContractInstance;
 
     smartContract.isRegistered.call(this.props.appContext.userAccount)
@@ -71,7 +72,6 @@ class Home extends Component {
       </div>
     );
   }
-
 }
 
 export default Home
