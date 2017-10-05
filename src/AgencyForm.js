@@ -115,6 +115,7 @@ class AgencyForm extends Component {
               </div>
               <div className="col-md-12">
                 <button
+                  type="button"
                   style={ style.formPost }
                   onClick={() => this.props.registerAgency()}>Register Agency</button>
               </div>
