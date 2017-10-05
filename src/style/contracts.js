@@ -41,6 +41,22 @@ const contracts = {
         marginTop: "10px"
     },
 
+    contractLink: {
+        color:'#2C83AA',
+        fontSize:'1.2em'
+    },
+
+    contractNum: {
+        backgroundColor: "rgb(44, 131, 170)",
+        color: "#fff",
+        borderRadius: "2px",
+        width: "43px",
+        display: "inline-block",
+        textAlign: "center",
+        padding: "8px",
+        fontSize: "1.2em"
+    },
+
     contractView: {
         backgroundColor:'#F6F5F1',
         padding:'3px 10px 50px',

@@ -10,7 +10,6 @@ class Contracts extends Component {
                 <div className="row">
                     <div className="col-md-8">
                         <h1>{this.props.appContext.userDetails.name}</h1>
-                        <p>Verified!</p>
                     </div>
 
                     <div className="col-md-4">
@@ -33,8 +32,8 @@ class Contracts extends Component {
 
                       <tbody>
                         {this.props.contracts.map((contract,index) => <tr key={index}>
-                          <td>{index+1}</td>
-                          <td><Link to={{ pathname: '/contract/' + contract.address }}>{contract.name}</Link></td>
+                          <td><span style={style.contractNum}>{index+1}</span></td>
+                          <td><Link style={style.contractLink} to={{ pathname: '/contract/' + contract.address }}>{contract.name}</Link></td>
                           <td>{contract.site}</td>
                           <td>{contract.type}</td>
                           <td>0</td>
