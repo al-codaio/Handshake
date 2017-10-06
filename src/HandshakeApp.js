@@ -66,7 +66,7 @@ class HandshakeApp extends Component {
 
   setupContractListeners(component){
     this.appContext.handshakeContractInstance
-    .LogLaborContractCreated(null, { fromBlock: 0, toBlock: 'latest', agency: this.appContext.userAccount }).watch(function(err, result){
+    .LogLaborContractCreated({agency: this.appContext.userAccount}, { fromBlock: 0, toBlock: 'latest' }).watch(function(err, result){
       if (err) {
         console.log(err);
         return;
