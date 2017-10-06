@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import style from './style/style';
+import Face from 'react-icons/lib/md/face'
+import City from 'react-icons/lib/md/location-city'
+import LocationPoint from 'react-icons/lib/md/location-on'
+import Mail from 'react-icons/lib/md/email'
+import Phone from 'react-icons/lib/md/local-phone'
 
 class Agency extends Component {
 
@@ -24,11 +29,11 @@ class Agency extends Component {
               <div className="col-md-3">
                 <ul style={ style.contactInfo }>
                   <li>{this.props.appContext.userAccount.substr(0,8) + '...'}</li>
-                  <li>{this.props.appContext.userDetails.city}</li>
-                  <li>{this.props.appContext.userDetails.country}</li>
-                  <li>{this.props.appContext.userDetails.contact_name}</li>
-                  <li>{this.props.appContext.userDetails.contact_phone}</li>
-                  <li>{this.props.appContext.userDetails.contact_email}</li>
+                  <li><City />{this.props.appContext.userDetails.city}</li>
+                  <li><LocationPoint /> {this.props.appContext.userDetails.country}</li>
+                  <li><Face /> {this.props.appContext.userDetails.contact_name}</li>
+                  <li><Phone /> {this.props.appContext.userDetails.contact_phone}</li>
+                  <li><Mail /> {this.props.appContext.userDetails.contact_email}</li>
                 </ul>
               </div>
             </div>
@@ -41,7 +46,7 @@ class Agency extends Component {
 
             <p><a href="#gender-sensitivity">IOM Gender Sensitivity</a> (not started)</p>
           </div>
-          
+
         </div>
       </div>
     )

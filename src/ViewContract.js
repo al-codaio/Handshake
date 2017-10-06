@@ -164,7 +164,7 @@ class ViewContract extends Component {
               </div>
 
               <div className="clearfix" style={ style.contractSpacing }>
-                <div className="col-md-3">Termination Advence:</div>
+                <div className="col-md-3">Termination Advance:</div>
                 <div className="col-md-9">{contract.termination}</div>
               </div>
 

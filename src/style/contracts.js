@@ -67,7 +67,8 @@ const contracts = {
     dashBtn: {
         float: "right",
         marginTop: "31px",
-        marginRight: "10px"
+        marginRight: "10px",
+        marginBottom: "35px"
     },
 
     secondaryBtn: {
