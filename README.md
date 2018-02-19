@@ -5,7 +5,7 @@ The beginnings of a universal migrant worker contract for transparent job opport
 
 `docs > architecture.md` for technical details
 
-# To Add Contracts, as of 29/09/2017
+## To Deploy Contracts
 
 1. Run testrpc
 
