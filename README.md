@@ -1,7 +1,7 @@
 Handshake
 =========
 
-The beginnings of a universal migrant worker contract for transparent job opportunities.
+The beginnings of a universal migrant worker contract for transparent job opportunities. App built as part of ConsenSys's 2017 Blockchain for Social Impact hackathon.
 
 `docs > architecture.md` for technical details
 
