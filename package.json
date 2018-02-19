@@ -5,20 +5,20 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
-    "express": "^4.15.5",
+    "express": "^4.16.2",
     "foreman": "^2.0.0",
-    "marked": "^0.3.6",
-    "mongoose": "^4.11.13",
-    "muicss": "^0.9.26",
-    "nodemon": "^1.12.1",
+    "marked": "^0.3.9",
+    "mongoose": "^4.13.11",
+    "muicss": "^0.9.36",
+    "nodemon": "^1.15.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-icons": "^2.2.7",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.0.13",
+    "react-scripts": "^1.1.1",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^4.8.0",
-    "truffle-contract": "^3.0.0",
+    "truffle-contract": "^3.0.3",
     "uport-connect": "^0.6.6"
   },
   "scripts": {
@@ -35,6 +35,6 @@
     "build-full:darwin:linux": "truffle compile --compile-all && truffle migrate --reset && cp -f -r ./build/contracts ./src && react-scripts build"
   },
   "devDependencies": {
-    "run-script-os": "^1.0.2"
+    "run-script-os": "^1.0.3"
   }
 }
